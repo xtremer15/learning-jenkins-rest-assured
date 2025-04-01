@@ -27,16 +27,14 @@ pipeline {
 
     }
      post {
-           fail
-
-            always {
-                   // Publish TestNG results
-                 bat 'dir target\\surefire-reports'  // Windows
-                 if(fileExists('target/surefire-reports/testng-results.xml')){
-                 junit 'target/surefire-reports/*.xml'
+             always {
+                 script {
+                     if (fileExists('target/surefire-reports/testng-results.xml')) {
+                         junit 'target/surefire-reports/*.xml'
+                     } else {
+                         echo "No test results found, skipping JUnit report publishing."
+                     }
                  }
-                 echo "Published test results"
-               }
-        }
-
+             }
+         }
 }
