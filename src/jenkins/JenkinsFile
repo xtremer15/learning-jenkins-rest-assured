@@ -25,8 +25,9 @@ pipeline {
 
      stage("Generate Allure Report") {
                 steps {
-                    bat 'dir target\\site\\allure-maven-plugin'
                     bat script: 'mvn allure:report'
+                    echo "Dir below"
+                    bat 'dir target/site/allure-maven-plugin'
                 }
             }
 
