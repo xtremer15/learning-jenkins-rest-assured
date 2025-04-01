@@ -28,10 +28,11 @@ pipeline {
 
     }
      post {
-                                always {
-                                       // Publish TestNG results
-                                       publishTestNG testResultsPattern: '**/testng-results.xml'
-                                   }
-                            }
+            always {
+                   // Publish TestNG results
+                publishTestNGResults pattern: '**/testng-results.xml'
+                 junit '**/testng-results.xml'
+               }
+        }
 
 }
