@@ -1,24 +1,33 @@
-pipeline{
-    agent any;
+pipeline {
+    agent any
 
-    stages{
-        stage("Clone repo"){
-            steps{
-                git branch:'main', credentialsId:'xtremer17', url:"https://github.com/xtremer15/learning-jenkins-rest-assured"
+    stages {
+        stage("Clone repo") {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'xtremer17',
+                    url: "https://github.com/xtremer15/learning-jenkins-rest-assured"
                 echo "Cloning repo"
             }
         }
 
-        stage("Build code"){
-            steps{
-               bat script: 'mvn compile'
+        stage("Build code") {
+            steps {
+                bat script: 'mvn compile'
             }
         }
 
-        stage("Run Tests"){
-                    steps{
-                       bat script: 'mvn clean test'
-                    }
-                }
+        stage("Run Tests") {
+            steps {
+                bat script: 'mvn clean test'
+            }
         }
+    }
+
+    post {
+        always {
+            // Publish TestNG results
+            publishTestNGResults testResultsPattern: 'target/surefire-reports/testng-results.xml'
+        }
+    }
 }
