@@ -23,12 +23,10 @@ public class AuthService {
                 .contentType(ContentType.JSON)
                 .body(loginCredentials)
                 .filter(new RequestLoggingFilter())  // Logs formatted request
+                .filter(new ResponseLoggingFilter())  // Logs formatted request
                 .post()
                 .then()
                 .extract().response();
-
-// Pretty print the response body before deserializing
-        System.out.println("Response Body:\n" + response.prettyPeek());
 
         return response.body().as(AuthPojo.class);
     }
