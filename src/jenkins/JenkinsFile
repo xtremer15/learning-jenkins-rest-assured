@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage("Clone repo"){
             steps{
-                git branch:'main', credentialsId:'', url:"https://github.com/xtremer15/learning-jenkins-rest-assured"
+                git branch:'main', credentialsId:'xtremer17', url:"https://github.com/xtremer15/learning-jenkins-rest-assured"
                 echo "Cloning repo"
             }
         }
