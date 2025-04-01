@@ -30,6 +30,7 @@ pipeline {
             always {
                    // Publish TestNG results
                  junit '**/testng-results.xml'
+                 echo "Published test results"
                }
         }
 
