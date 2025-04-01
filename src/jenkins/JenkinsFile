@@ -29,7 +29,8 @@ pipeline {
      post {
             always {
                    // Publish TestNG results
-                 junit '**/testng-results.xml'
+                  bat 'dir target\\surefire-reports'  // Windows
+                 junit 'target/surefire-reports/*.xml'
                  echo "Published test results"
                }
         }
