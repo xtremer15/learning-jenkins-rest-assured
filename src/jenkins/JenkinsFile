@@ -30,7 +30,7 @@ pipeline {
      post {
             always {
                    // Publish TestNG results
-                publishTestNGResults pattern: '**/testng-results.xml'
+//                 publishTestNGResults pattern: '**/testng-results.xml'
                  junit '**/testng-results.xml'
                }
         }
