@@ -27,10 +27,14 @@ pipeline {
 
     }
      post {
+           fail
+
             always {
                    // Publish TestNG results
-                  bat 'dir target\\surefire-reports'  // Windows
+                 bat 'dir target\\surefire-reports'  // Windows
+                 if(fileExists('target/surefire-reports/testng-results.xml')){
                  junit 'target/surefire-reports/*.xml'
+                 }
                  echo "Published test results"
                }
         }
