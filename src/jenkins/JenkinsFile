@@ -1,12 +1,24 @@
 pipeline{
     agent any;
+
     stages{
         stage("Clone repo"){
             steps{
-                git branch
+                git branch:'main', credentialsId:'', url:"https://github.com/xtremer15/learning-jenkins-rest-assured"
                 echo "Cloning repo"
             }
         }
 
-    }
+        stage("Build code"){
+            steps{
+               bat script: 'mvn compile'
+            }
+        }
+
+        stage("Run Tests"){
+                    steps{
+                       bat script: 'mvn clean test'
+                    }
+                }
+        }
 }
