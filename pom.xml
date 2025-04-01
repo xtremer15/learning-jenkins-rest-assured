@@ -84,6 +84,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <resultsDirectory>${project.basedir}/target</resultsDirectory>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -93,12 +96,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                <properties>
-                    <property>
-                        <name>usedefaultlisteners</name>
-                        <value>true</value>
-                    </property>
-                </properties>
                 </configuration>
             </plugin>
         </plugins>

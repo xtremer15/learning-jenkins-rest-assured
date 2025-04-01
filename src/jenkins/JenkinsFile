@@ -33,9 +33,9 @@ pipeline {
      post {
              always {
                  script {
-                     if (fileExists('target/allure-results')) {
+                     if (fileExists('target/site')) {
                       echo "📢 Generating Allure report..."
-                      allure includeProperties: false, results: [[path: 'target/allure-results']]
+                      allure includeProperties: false, results: [[path: 'target/site/allure-maven-plugin/index.html']]
 //                          junit 'target/surefire-reports/*.xml'
                      } else {
                          echo "No test results found, skipping JUnit report publishing."
