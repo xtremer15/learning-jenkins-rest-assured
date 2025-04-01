@@ -27,7 +27,7 @@ pipeline {
                 steps {
                     bat script: 'mvn allure:report'
                     echo "Dir below"
-                    bat 'dir target/site/allure-maven-plugin'
+                    bat 'dir target\\site\\allure-maven-plugin'
                 }
             }
 
@@ -37,7 +37,7 @@ pipeline {
                  script {
                      if (fileExists('target/site')) {
                       echo "📢 Generating Allure report..."
-                      allure includeProperties: false, results: [[path: 'target/site/allure-maven-plugin/index.html']]
+                      allure includeProperties: false, results: [[path: 'target\\site\\allure-maven-plugin\\index.html']]
 //                          junit 'target/surefire-reports/*.xml'
                      } else {
                          echo "No test results found, skipping JUnit report publishing."
