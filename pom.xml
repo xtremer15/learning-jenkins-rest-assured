@@ -84,9 +84,9 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <resultsDirectory>${project.basedir}/target</resultsDirectory>
-                </configuration>
+<!--                <configuration>-->
+<!--                    <resultsDirectory>${project.basedir}/target</resultsDirectory>-->
+<!--                </configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -95,7 +95,6 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <failIfNoTests>false</failIfNoTests>
-                    <testFailureIgnore>false</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>

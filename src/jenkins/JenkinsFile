@@ -42,7 +42,7 @@ pipeline {
                  script {
                      if (fileExists('target/site')) {
                       echo "📢 Generating Allure report..."
-                      allure includeProperties: false, results: [[path: 'target\\site\\allure-maven-plugin\\index.html']]
+                      allure includeProperties: false, results: [[path: 'target/allure-results']]
 //                          junit 'target/surefire-reports/*.xml'
                      } else {
                          echo "No test results found, skipping JUnit report publishing."
