@@ -23,14 +23,15 @@ pipeline {
                 bat script: 'mvn clean test'
             }
 
-             post {
-                    always {
-                           // Publish TestNG results
-                           publishTestNG testResultsPattern: '**/testng-results.xml'
-                       }
-                }
-        }
-    }
 
+        }
+
+    }
+     post {
+                                always {
+                                       // Publish TestNG results
+                                       publishTestNG testResultsPattern: '**/testng-results.xml'
+                                   }
+                            }
 
 }
