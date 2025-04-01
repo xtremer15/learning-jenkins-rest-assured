@@ -13,6 +13,7 @@ pipeline {
 
         stage("Build code") {
             steps {
+                bat script:"mvn clean package"
                 bat script: 'mvn compile'
             }
         }
@@ -21,13 +22,15 @@ pipeline {
             steps {
                 bat script: 'mvn clean test'
             }
+
+             post {
+                    always {
+                        // Publish TestNG results
+                        publishTestNGResults testResultsPattern: 'target/surefire-reports/testng-results.xml'
+                    }
+                }
         }
     }
 
-    post {
-        always {
-            // Publish TestNG results
-            publishTestNGResults testResultsPattern: 'target/surefire-reports/testng-results.xml'
-        }
-    }
+
 }
