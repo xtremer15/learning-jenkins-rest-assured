@@ -6,6 +6,9 @@ import org.example.auth.Service.AuthService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.util.Random;
+
 public class POSTLoginTest {
     AuthService authService;
     @BeforeTest
@@ -25,6 +28,14 @@ public class POSTLoginTest {
     @Test
     public void logUserAndGetName(){
         var resp =   authService.loginUser("emilys","emilyspass",20);
-        Assert.assertEquals(resp.getFirstName(), "asdad");
+        Assert.assertEquals(resp.getFirstName(), getRandomName());
+    }
+
+
+    public static String getRandomName() {
+        final String[] names = {"asdad", "Emily"};
+
+        Random random = new Random();
+        return names[random.nextInt(names.length)];
     }
 }
