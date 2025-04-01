@@ -25,6 +25,6 @@ public class POSTLoginTest {
     @Test
     public void logUserAndGetName(){
         var resp =   authService.loginUser("emilys","emilyspass",20);
-        Assert.assertEquals(resp.getFirstName(), "emilysd2");
+        Assert.assertEquals(resp.getFirstName(), "Emily");
     }
 }
