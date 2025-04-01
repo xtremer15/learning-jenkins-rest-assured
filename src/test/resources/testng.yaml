@@ -1,0 +1,4 @@
+credentials:
+  username: "emilys"
+  password: "emilyspass"
+  timeout: 20
