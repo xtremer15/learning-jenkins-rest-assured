@@ -25,9 +25,9 @@ pipeline {
 
              post {
                     always {
-                        // Publish TestNG results
-                        publishTestNGResults testResultsPattern: 'target/surefire-reports/testng-results.xml'
-                    }
+                           // Publish TestNG results
+                           publishTestNG testResultsPattern: '**/testng-results.xml'
+                       }
                 }
         }
     }
