@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://dummyjson.com",
+  "timeout": 30,
+  "browser": "chrome",
+  "environment": "staging"
+}

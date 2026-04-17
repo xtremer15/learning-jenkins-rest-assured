@@ -2,8 +2,8 @@ package enums;
 
 public enum EnvFilePaths {
 
-    DEV("env/.dev.properties"),
-    QA("env/.qa.properties");
+    DEV("env/dev.properties"),
+    QA("env/qa.properties");
 
     private final String filePath;
 

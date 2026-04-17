@@ -12,17 +12,22 @@ public class EnvironmentResolver {
 
     public static void resolveTo(String envName) throws IOException {
         try {
-            Properties env = ConfigLoader.loadEnv(envName);
 
-            TestContext.setBaseUrl(env.getProperty("url"));
-            TestContext.setEnvName(env.getProperty("envenv_name"));
+            var config = Config.resolve(envName);
 
-            tdm.init(env.getProperty("url"));
+            new TestContext(config);
+
+            tdm.init(config.getEnvURL());
+
+            System.out.println(config.getEnvURL());
+            System.out.println(config.getEnvName());
+            System.out.println(config.getLogLevel());
 
             AuthPojo jwt = tdm.getLoggedUser();
-            System.out.println(jwt.getAccessToken());
-//            tdm.getRequestContext().setBearer(jwt.getAccessToken());
-//            TestContext.setToken(jwt.getAccessToken());
+
+            System.out.println("Token" + jwt.getAccessToken());
+            tdm.getRequestContext().setBearer(jwt.getAccessToken());
+            TestContext.setToken(jwt.getAccessToken());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

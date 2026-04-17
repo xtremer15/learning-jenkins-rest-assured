@@ -1,31 +1,30 @@
 package config;
 
 import enums.EnvFilePaths;
+import utils.file_utils.FactoryFileLoader;
+import utils.file_utils.JsonFileLoader;
+import utils.file_utils.PropertiesFileReader;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigLoader {
-    private static Properties props = new Properties();
 
-    private static InputStream load(String pathToFile) throws IOException {
-        System.out.println(pathToFile);
-        return ConfigLoader.class.getClassLoader().getResourceAsStream(pathToFile);
+    private static volatile Properties instance;
 
+    private ConfigLoader() {
     }
 
-    public static Properties loadEnv(String env) throws IOException {
-        switch (env.toLowerCase()) {
-            case "dev":
-                props.load(ConfigLoader.load(EnvFilePaths.DEV.getFilePath()));
-                break;
-            case "qa":
-                props.load(ConfigLoader.load(EnvFilePaths.QA.getFilePath()));
-                break;
+    public static Properties getInstance(String env) {
+        if (instance == null) {
+            synchronized (ConfigLoader.class) {
+                if (instance == null) {
+                    instance = (Properties) FactoryFileLoader.getReader("properties", env);
+
+                }
+            }
         }
-        return props;
+        return instance;
     }
 }

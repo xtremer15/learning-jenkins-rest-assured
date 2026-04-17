@@ -16,8 +16,8 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class TestDataManager {
-    private ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();
 
+    private ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();
 
     RequestContext requestContext = new RequestContext();
     private AuthService authSvc = new AuthService(Routes.login);
@@ -28,16 +28,8 @@ public class TestDataManager {
     }
 
 
-    public static boolean isFeatureEnabled(String envName) {
-        String isFeatureEnabled;
-        try {
-            Properties env = ConfigLoader.loadEnv(envName);
-            isFeatureEnabled = env.getProperty("flag");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("Feature is :" + isFeatureEnabled);
-        return Boolean.parseBoolean(isFeatureEnabled);
+    public static boolean isFeatureEnabled(String featureFlag) {
+        return Boolean.parseBoolean(featureFlag);
     }
 
 
