@@ -9,8 +9,7 @@ variables:
   ENABLE_USERS_FLAG: "false"
   TIMEOUT: 10
   LOG_LEVEL: "info"
-  matrix:
-    ENV_NAME: "dev"
+  ENV_NAME: "dev"
 
 
 on:
