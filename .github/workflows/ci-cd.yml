@@ -17,6 +17,10 @@ on:
           - qa
           - staging
 
+permissions:
+  pull-requests: write
+  checks: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -41,3 +45,11 @@ jobs:
         with:
           name: allure-results
           path: allure-results/
+      - name: Run Allure Action
+        uses: allure-framework/allure-report@v0
+        with:
+          # Path to the generated report directory
+          # By default, it's set to `./allure-report`
+          report-directory: "./allure-report"
+          # GitHub Token that's used for posting the comments in Pull Requests
+          github-token: ${{ secrets.GITHUB_TOKEN }}
