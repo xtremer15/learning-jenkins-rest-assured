@@ -50,6 +50,7 @@ jobs:
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@master
         if: always()
+        continue-on-error: true
         with:
           allure_results: allure-results
           allure_history: gh-pages
