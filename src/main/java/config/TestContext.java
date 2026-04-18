@@ -8,6 +8,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class TestContext {
+    private TestContext() {
+    }
 
     @Getter
     @Setter
@@ -18,23 +20,6 @@ public class TestContext {
     @Getter
     @Setter
     public static String token;
-    @Getter
-    @Setter
-    public static String uuid;
-    @Getter
-    @Setter
-    public static int testDuration;
-    @Getter
-    @Setter
-    public static String seedId;
-    @Getter
-    @Setter
-    public static String testStatus;
-
-    public TestContext(Config config) {
-        TestContext.envName = config.getEnvName();
-        TestContext.baseUrl = config.getEnvURL();
-    }
 
     // --- Annotation Cache Logic ---
     private static final Map<String, Object> payloadCache = new ConcurrentHashMap<>();
@@ -55,6 +40,5 @@ public class TestContext {
         payloadCache.clear();
     }
     // ------------------------------
-
 
 }

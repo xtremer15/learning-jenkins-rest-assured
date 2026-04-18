@@ -34,7 +34,7 @@ public class Config {
 
     private static String getConfig(String key, String envName) {
         Properties env = ConfigLoader.getInstance(envName);
-        String valueFromEnv = System.getenv(envName);
+        String valueFromEnv = System.getenv(key);
         if (valueFromEnv != null) {
             return valueFromEnv;
         }

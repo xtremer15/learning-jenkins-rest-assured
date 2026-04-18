@@ -67,7 +67,6 @@ public class CustomReporter implements ITestListener {
     public void onTestStart(ITestResult result) {
         String uuid = Utils.generateUUID();
         long threadId = Thread.currentThread().getId();
-        TestContext.setUuid(uuid);
         System.out.println("envName este => " + TestContext.getEnvName());
         result.setAttribute("uuid", uuid);
         result.setAttribute("env", "dev");

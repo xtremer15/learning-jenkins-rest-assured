@@ -15,7 +15,7 @@ public class EnvironmentResolver {
 
             var config = Config.resolve(envName);
 
-            new TestContext(config);
+            TestContext.setEnvName(config.getEnvName());
 
             tdm.init(config.getEnvURL());
 
