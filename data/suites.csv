@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","293","logUserAndGetName","Auth Service Tests","Sat Apr 18 21:57:05 UTC 2026","passed","Sat Apr 18 21:57:06 UTC 2026","auth.POSTLoginTest","POST Login Tests","auth.POSTLoginTest","logUserAndGetName"
-"","201","logUserAndGetIdANdEmail","Auth Service Tests","Sat Apr 18 21:57:05 UTC 2026","passed","Sat Apr 18 21:57:06 UTC 2026","auth.POSTLoginTest","POST Login Tests","auth.POSTLoginTest","logUserAndGetIdANdEmail"
-"","197","logUserAndGetEmail","Auth Service Tests","Sat Apr 18 21:57:05 UTC 2026","passed","Sat Apr 18 21:57:06 UTC 2026","auth.POSTLoginTest","POST Login Tests","auth.POSTLoginTest","logUserAndGetEmail"
+"","1127","logUserAndGetIdANdEmail","Auth Service Tests","Sat Apr 18 21:58:50 UTC 2026","passed","Sat Apr 18 21:58:51 UTC 2026","auth.POSTLoginTest","POST Login Tests","auth.POSTLoginTest","logUserAndGetIdANdEmail"
+"","1125","logUserAndGetEmail","Auth Service Tests","Sat Apr 18 21:58:50 UTC 2026","passed","Sat Apr 18 21:58:51 UTC 2026","auth.POSTLoginTest","POST Login Tests","auth.POSTLoginTest","logUserAndGetEmail"
+"","1124","logUserAndGetName","Auth Service Tests","Sat Apr 18 21:58:50 UTC 2026","passed","Sat Apr 18 21:58:51 UTC 2026","auth.POSTLoginTest","POST Login Tests","auth.POSTLoginTest","logUserAndGetName"
