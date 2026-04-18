@@ -10,7 +10,7 @@ variables:
   TIMEOUT: 10
   LOG_LEVEL: "info"
   matrix:
-    ENV_NAME: [ "dev","qa","prod" ]
+    ENV_NAME: "dev"
 
 
 on:

@@ -23,21 +23,31 @@ public class Config {
     private double timeout = 30;
 
 
-    public static Config resolve(String envName) throws IOException {
+    public static Config resolve() throws IOException {
+        // reads -Denv=qa CLI/CI, fallback dev
+        String envName = System.getProperty("env", "dev");
+        Properties props = loadEnv(envName);
+
+
         return Config.builder()
-                .envURL(getConfig("BASE_URL", envName))
-                .logLevel(getConfig("LOG_LEVEL", envName))
-                .timeout(Integer.parseInt(getConfig("TIMEOUT", envName)))
-                .envName(getConfig("ENV_NAME", envName))
+                .envURL(readKey(props, "BASE_URL"))
+                .logLevel(readKey(props, "LOG_LEVEL"))
+                .timeout(Integer.parseInt(readKey(props, "TIMEOUT")))
+                .envName(readKey(props, "ENV_NAME"))
                 .build();
     }
 
-    private static String getConfig(String key, String envName) {
-        Properties env = ConfigLoader.getInstance(envName);
-        String valueFromEnv = System.getenv(key);
-        if (valueFromEnv != null) {
-            return valueFromEnv;
-        }
-        return env.getProperty(key);
+    private static Properties loadEnv(String envName) {
+        return ConfigLoader.getInstance(envName);
+    }
+
+
+    private static String readKey(Properties props, String key) {
+        String fromCI = System.getenv(key);
+        String fromCLI = System.getProperty(key);
+
+        if (fromCI != null && !fromCI.isBlank()) return fromCI;
+        if (fromCLI != null && !fromCLI.isBlank()) return fromCLI;
+        return props.getProperty(key);
     }
 }

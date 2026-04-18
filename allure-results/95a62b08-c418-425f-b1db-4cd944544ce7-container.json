@@ -1,0 +1,1 @@
+{"uuid":"95a62b08-c418-425f-b1db-4cd944544ce7","name":"learning-jenkins-rest-assured","children":["7bfb56e3-3325-4c9d-bd91-6e867ec39dee"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1776543394449,"stop":1776543394459}],"afters":[],"start":1776543394424,"stop":1776543394821}

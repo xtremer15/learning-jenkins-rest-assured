@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import java.util.Random;
 
 @Listeners({hooks.Hooks.class})
-public class POSTLoginTest  {
+public class POSTLoginTest {
     AuthService authService;
     TestDataManager tdm;
 
@@ -26,24 +26,23 @@ public class POSTLoginTest  {
         tdm = new TestDataManager();
     }
 
-    @Test(groups = {"smoke"})
+    @Test()
     public void logUserAndGetEmail() {
-
         AuthPojo resp = authService.login(tdm.getAuthCreds());
         Assert.assertEquals(resp.getId(), 1);
         Assert.assertEquals(resp.getEmail(), "emily.johnson@x.dummyjson.com");
     }
 
-    @Test(groups = {"smoke", "regression"})
+    @Test()
     public void logUserAndGetIdANdEmail() {
-        AuthPojo resp = authService.loginUser("emilys", "emilyspass", 20);
+        AuthPojo resp = authService.login(tdm.getAuthCreds());
         Assert.assertEquals(resp.getId(), 1);
         Assert.assertEquals(resp.getEmail(), "emily.johnson@x.dummyjson.com");
     }
 
-    @Test(groups = {"regression"})
+    @Test()
     public void logUserAndGetName() {
-        AuthPojo resp = authService.loginUser("emilys", "emilyspass", 20);
+        AuthPojo resp = authService.login(tdm.getAuthCreds());
         Assert.assertEquals(resp.getFirstName(), getRandomName());
     }
 

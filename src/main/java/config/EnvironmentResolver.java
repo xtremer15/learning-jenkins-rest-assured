@@ -10,10 +10,9 @@ public class EnvironmentResolver {
 
     private static TestDataManager tdm = new TestDataManager();
 
-    public static void resolveTo(String envName) throws IOException {
+    public static void resolveTo() throws IOException {
         try {
-
-            var config = Config.resolve(envName);
+            var config = Config.resolve();
 
             TestContext.setEnvName(config.getEnvName());
 
