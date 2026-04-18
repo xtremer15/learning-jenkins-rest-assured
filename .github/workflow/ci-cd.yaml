@@ -5,7 +5,7 @@ stages:
   - test
 
 variables:
-  BASE_URL: "https://dummyjson:com/"
+  BASE_URL: "https://dummyjson.com/"
   ENABLE_USERS_FLAG: "false"
   TIMEOUT: 10
   LOG_LEVEL: "info"
