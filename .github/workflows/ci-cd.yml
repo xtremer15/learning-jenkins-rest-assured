@@ -63,7 +63,7 @@ jobs:
           publish_branch: gh-pages
           publish_dir: allure-history
 
-      - name: Post report link on PR
+      - name: Post report link on PRS
         if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
